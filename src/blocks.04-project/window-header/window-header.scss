@@ -1,0 +1,17 @@
+.window-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 30px;
+  background-color: $gray-500;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 10px;
+}
+
+.window-header__nav {
+  .a:not(:last-child) {
+    margin-right: 30px;
+  }
+}

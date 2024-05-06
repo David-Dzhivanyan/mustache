@@ -6,4 +6,4 @@ $grid-gutter-width: 2.5rem !default;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/variables-dark";
 
-$container-max-widths: map.merge( $container-max-widths, (xxl: 1920px) );
+$container-max-widths: map.merge( $container-max-widths, (xxl: 1024px) );
