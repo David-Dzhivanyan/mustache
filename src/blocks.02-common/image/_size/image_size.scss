@@ -1,0 +1,23 @@
+@use "sass:math";
+// TODO: добавляйте новые размеры изображений если планируете их использовать на сайте
+$image-control-size: (
+  '1200x200',
+);
+@mixin image-size($width, $height, $unit: px) {
+  &_#{$width}x#{$height} {
+    max-height: $height+$unit;
+    flex-basis: $width+$unit;
+    &:before{padding-top:  percentage(math.div($height,$width))}
+  }
+}
+
+
+.image_size {
+  @each $sizes in $image-control-size {
+    $sliceIndex: str-index($sizes, 'x');
+    $width: to-number(str-slice($sizes, 1, $sliceIndex - 1));
+    $height: to-number(str-slice($sizes, $sliceIndex + 1, str-length($sizes)));
+    @include image-size($width, $height);
+  }
+}
+

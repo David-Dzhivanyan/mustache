@@ -1,0 +1,6 @@
+@import "~bootstrap/scss/functions";
+@import "./../variables";
+@import "~bootstrap/scss/maps";
+//@import "~bootstrap/scss/mixins";
+@import "./mixins"; // TODO Убрать в пользу "bootstrap/scss/mixins" после фикса https://github.com/twbs/bootstrap/issues/39028
+@import "~bootstrap/scss/utilities";

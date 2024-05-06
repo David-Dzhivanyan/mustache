@@ -1,0 +1,26 @@
+.hidden-modern{
+  display: block;
+  .ua-js.ua-modern & {
+    display: none;
+  }
+}
+.hidden-no-modern{
+  display: block;
+  .ua-js.ua-no-modern & {
+    display: none;
+  }
+}
+
+.visible-modern{
+  display: none;
+  .ua-js.ua-modern & {
+    display: block;
+  }
+}
+
+.visible-no-modern{
+  display: none;
+  .ua-js.ua-no-modern & {
+    display: block;
+  }
+}

@@ -1,0 +1,6 @@
+.image__char {
+  line-height: 1;
+  &:not(:first-child){
+    display: none;
+  }
+}

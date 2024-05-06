@@ -1,0 +1,13 @@
+build/
+.DS_Store
+.idea/
+*.iml
+.project
+.svn
+npm-debug.log
+node_modules
+test
+branch
+dist
+.env
+.env.development

@@ -1,0 +1,12 @@
+.image {
+  line-height: 1;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: bottom;
+  flex: 1 1 0px;
+  &:before{
+    content: '';
+    display: block;
+  }
+}

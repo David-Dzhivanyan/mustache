@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "ChromeAndroid >= 78",
+            "FirefoxAndroid >= 44",
+            "iOS >= 11",
+            "Android >= 4.4",
+            "OperaMobile >= 65",
+            "Chrome >= 49",
+            "Firefox >= 44",
+            "Opera >= 65",
+            "Safari >= 12",
+            "Edge >= 17"
+          ]
+        },
+        "corejs": 3,
+        "modules": "cjs",
+        "useBuiltIns": "usage",
+        "forceAllTransforms": true,
+        "debug": false
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
+  ]
+}

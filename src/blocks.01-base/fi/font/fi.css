@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "fi";
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src: url("./fi.woff2?738f406278f6dbb7e5c1880f7a0c1cc6") format("woff2");
+}
+
+.fi:before {
+    font-family: fi !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fi_icon_close:before {
+    content: "\f101";
+}
