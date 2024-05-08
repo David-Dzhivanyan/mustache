@@ -27,7 +27,7 @@
     padding: 0 6px;
   }
 
-  .a:first-child{
+  & > .a:first-child{
     padding: 0;
     border-radius: 50%;
   }
@@ -35,12 +35,33 @@
 
 .window-header__info {
   display: flex;
-  //gap: 10px;
   font-size: 23px;
 
   .small {
     font-size: 14px;
     vertical-align: top;
+  }
+}
+
+.window-header__dropdown {
+  .dropdown-toggle {
+    &::after {
+      display: none;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: black;
+    border-radius: 0;
+    padding: 2px;
+    width: max-content;
+    min-width: auto;
+
+    .a {
+      display: block;
+      height: 100%;
+      font-size: 20px;
+    }
   }
 }
 

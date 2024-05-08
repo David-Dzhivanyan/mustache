@@ -7,3 +7,12 @@
 		color: $white;
 	}
 }
+
+.a_white {
+	color: $white;
+
+	&:hover {
+		background-color: $white;
+		color: $black;
+	}
+}
