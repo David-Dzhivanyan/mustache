@@ -19,21 +19,3 @@ module.exports = [
         ]},
     ]}
 ];
-
-// {block: 'event-dropdown', cls: 'dropdown', content: [
-//   {elem: 'title', content: title},
-//   {elem: 'toggle', tag: 'button', cls: 'dropdown-toggle', attrs: {'data-bs-toggle': 'dropdown', 'data-bs-offset': '0, 0'}, content: [
-//       {cls: 'd-flex align-items-center', content: [
-//           {block: 'fi', mods: {icon}},
-//           {cls: 'fw-bolder fs-20 fs-md-30', content: categoryTitle},
-//         ]},
-//     ]},
-//   {elem: 'menu', cls: 'dropdown-menu', content: list.map(({ title, icon }) => [
-//       {elem: 'link', tag: 'button', content: [
-//           {cls: 'd-flex align-items-center', content: [
-//               {block: 'fi', mods: {icon}},
-//               {cls: 'fw-bolder fs-20 fs-md-30', content: title},
-//             ]},
-//         ]},
-//     ])},
-// ]}
