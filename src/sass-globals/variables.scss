@@ -1,9 +1,20 @@
 @use "sass:map";
 $icons-font-family: 'fi';
+$font-family-sans-serif: "Windows XP Tahoma", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 $grid-gutter-width: 2.5rem !default;
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+	sm: 350px,
+	md: 360px,
+	lg: 540px,
+	xl: 720px,
+	xxl: 960px
+);
+// scss-docs-end container-max-widths
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/variables-dark";
 
-$container-max-widths: map.merge( $container-max-widths, (xxl: 1024px) );
+$container-max-widths: map.merge( $container-max-widths, (xxl: 1000px) );

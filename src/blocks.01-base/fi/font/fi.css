@@ -3,7 +3,7 @@
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url("./fi.woff2?16eaf6c2578c3371d69038e79e83bbf6") format("woff2");
+    src: url("./fi.woff2?07d66557db5290fddce41fa6a6a3a8f8") format("woff2");
 }
 
 .fi:before {
@@ -21,6 +21,21 @@
 .fi_icon_close:before {
     content: "\f101";
 }
-.fi_icon_mustache:before {
+.fi_icon_dex:before {
     content: "\f102";
+}
+.fi_icon_eagle:before {
+    content: "\f103";
+}
+.fi_icon_mustache_white:before {
+    content: "\f104";
+}
+.fi_icon_mustache:before {
+    content: "\f105";
+}
+.fi_icon_tg:before {
+    content: "\f106";
+}
+.fi_icon_twitter:before {
+    content: "\f107";
 }

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Windows XP Tahoma';
+    src: url('./fonts/WindowsXPTahoma.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

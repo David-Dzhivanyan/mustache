@@ -9,8 +9,8 @@ module.exports = [
           {block: 'a', content: 'Help'},
         ]},
       {elem: 'info', content: [
-          {tag: 'span', content: 'We applied 567 whinkers 5 May 2024'},
-          {tag: 'span', content: '19:33 am'},
+          {elem: 'date', content: 'We applied 567 whinkers 5 May <span class="small"> 2024</span>'},
+          {elem: 'time', content: '19:33 <span class="small">AM</span>'},
         ]},
     ]}
 ];
