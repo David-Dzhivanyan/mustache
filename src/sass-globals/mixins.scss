@@ -1,2 +1,10 @@
 @import "mixins/common";
 @import "mixins/fi";
+
+@mixin reset-button {
+	border: none;
+	background: none;
+	outline: none;
+	padding: 0;
+	margin: 0;
+}

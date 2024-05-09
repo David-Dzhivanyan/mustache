@@ -1,0 +1,73 @@
+.television {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 20px;
+
+	@include media-breakpoint-up(md) {
+		flex-direction: row;
+		padding: 50px 20px;
+	}
+}
+
+.television__tv-wrapper {
+	width: 200px;
+	align-self: center;
+
+	.img {
+		width: 100%;
+	}
+
+	@include media-breakpoint-up(md) {
+		flex-basis: 560px;
+	}
+}
+
+.television__constructor {
+	flex-basis: 220px;
+	font-size: 20px;
+	text-align: center;
+
+	@include media-breakpoint-up(md) {
+		padding-right: 20px;
+	}
+}
+
+.television__frame {
+	border-radius: 5px;
+	border: 1px solid $black;
+	width: 100%;
+	height: 100px;
+	max-width: 200px;
+	margin: 0 auto 8px;
+
+	@include media-breakpoint-up(md) {
+		height: 135px;
+	}
+}
+
+.television__range{
+	margin-bottom: 10px;
+}
+
+.television__input {
+	width: 100%;
+	max-width: 300px;
+}
+
+.television__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	max-width: 250px;
+	margin: 0 auto;
+
+	.img {
+		width: 30%;
+		height: 30%;
+	}
+}
+
+.television__type-mustache {
+	margin-bottom: 20px;
+}

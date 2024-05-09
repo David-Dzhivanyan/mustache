@@ -1,0 +1,24 @@
+.btn {
+	width: 100%;
+	--bs-btn-padding-y: 0;
+	--bs-btn-font-weight: $font-weight-medium;
+	--bs-btn-font-size: inherit;
+	--bs-btn-border-radius: 0;
+}
+
+.btn-outline {
+	border: 1px solid $black;
+	border-radius: 5px;
+}
+
+button[disabled] {
+  filter: opacity(0.5);
+  cursor: default;
+  pointer-events: none;
+}
+
+// фикс для сафари, по умолчаию там кнопки синего цвета
+button {
+	@include reset-button();
+  color: $body-color;
+}
