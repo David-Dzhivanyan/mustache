@@ -1,5 +1,5 @@
 .window-header {
-  background-image: url("../../../public/images/window-header/header_bg.jpg");
+  background-image: url("../../../public/images/window-header/header-bg.jpg");
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,7 +51,7 @@
   }
 
   .dropdown-menu {
-    background-color: black;
+    background-color: $black;
     border-radius: 0;
     padding: 2px;
     width: max-content;
@@ -76,5 +76,24 @@
     height: 70%;
     width: 2px;
     margin: 0 5px;
+  }
+}
+
+@include color-mode(dark) {
+  .window-header {
+    background-image: url("../../../public/images/window-header/header-bg_dark.png");
+  }
+
+  .window-header__date {
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  .window-header__dropdown {
+
+    .dropdown-menu {
+      background-color: $white;
+    }
   }
 }

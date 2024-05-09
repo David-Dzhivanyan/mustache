@@ -4,6 +4,20 @@ $font-family-sans-serif: "Windows XP Tahoma", system-ui, -apple-system, "Segoe U
 
 $grid-gutter-width: 2.5rem !default;
 
+// scss-docs-start gray-color-variables
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+// scss-docs-end gray-color-variables
+
 // scss-docs-start spacer-variables-maps
 $spacers: (
 	0: 0,
@@ -23,6 +37,8 @@ $container-max-widths: (
 	xxl: 960px
 );
 // scss-docs-end container-max-widths
+
+$body-color-dark: $white;
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/variables-dark";
