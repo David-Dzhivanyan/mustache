@@ -5,8 +5,9 @@
 	max-width: 90px;
 
 	&:hover {
+		cursor: pointer;
+
 		.application__icon {
-			cursor: pointer;
 			color: $black;
 		}
 

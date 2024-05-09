@@ -4,6 +4,15 @@ $font-family-sans-serif: "Windows XP Tahoma", system-ui, -apple-system, "Segoe U
 
 $grid-gutter-width: 2.5rem !default;
 
+// scss-docs-start spacer-variables-maps
+$spacers: (
+	0: 0,
+	12: 12px,
+	20: 20px,
+) ;
+// scss-docs-end spacer-variables-maps
+
+
 // scss-docs-start container-max-widths
 $container-max-widths: (
 	sm: 350px,
