@@ -1,7 +1,7 @@
 class Mustache {
 	constructor(elem) {
 		this.block = elem;
-		this.block.Television = this;
+		this.block.Mustache = this;
 
 		this.init();
 	}

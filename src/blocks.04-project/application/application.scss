@@ -40,3 +40,7 @@
 		background-color: $white;
 	}
 }
+
+@include color-mode(dark) {
+
+}

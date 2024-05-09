@@ -33,6 +33,7 @@
   @include media-breakpoint-up(sm) {
     justify-content: flex-start;
   }
+
   @include media-breakpoint-up(xl) {
     justify-content: space-between;
   }
@@ -67,5 +68,17 @@
     background: url("../../../public/images/main-window/theme-title.png") no-repeat 100% / cover;
     width: 220px;
     height: 40px;
+  }
+}
+
+@include color-mode(dark) {
+  .main-window {
+    background-image: url("../../../public/images/main-window/main-bg_dark.jpg");
+  }
+
+  .main-window__theme-button {
+    &::after {
+      background: url("../../../public/images/main-window/theme-title_dark.png") no-repeat 100% / cover;
+    }
   }
 }
