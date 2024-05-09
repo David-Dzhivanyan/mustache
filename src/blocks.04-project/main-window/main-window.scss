@@ -25,11 +25,34 @@
   }
 }
 
-.main-window__bg {
+.main-window__theme-button {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
+  right: 20px;
+  bottom: 20px;
+
+  &::before {
+    content: 'Hello! Change the subject here';
+    position: absolute;
+    top: -50px;
+    left: -128px;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 20px;
+    font-family: $font-family-sans-serif;
+    white-space: nowrap;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: -150px;
+    z-index: 0;
+    pointer-events: none;
+    background: url("../../../public/images/main-window/theme-title.png") no-repeat 100% / cover;
+    width: 220px;
+    height: 40px;
+  }
 }

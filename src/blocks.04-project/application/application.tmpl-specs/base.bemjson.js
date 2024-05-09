@@ -1,8 +1,7 @@
-module.exports = ({icon, title}) => [
+module.exports = ({icon, title, format = '.svg'}) => [
 	{block: 'application', content: [
 			{elem: 'icon', content: [
-					// {block: 'fi', mods: {icon: icon}},
-					{block: 'img', src: './images/main-window/' + icon + '.svg'}
+					{block: 'img', src: './images/main-window/' + icon + format}
 				]},
 			{elem: 'title', content: title}
 		]}
