@@ -14,7 +14,7 @@ module.exports = [
 					{elem: 'frame'},
 					{elem: 'range', content: [
 							{content: 'mustache size:'},
-							{elem: 'input', tag: 'input', attrs: {type: 'range', min: 20, max: 100, step: 1}}
+							{elem: 'input', tag: 'input', attrs: {type: 'range'}}
 						]},
 					{elem: 'type-mustache', content: [
 							{cls: 'mb-4', content: 'type of mustache:'},

@@ -2,3 +2,9 @@ body {
 	background-color: $black;
 	min-height: 100vh;
 }
+
+@include color-mode(dark) {
+	body {
+		background-color: $white;
+	}
+}

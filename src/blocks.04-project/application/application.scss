@@ -42,5 +42,24 @@
 }
 
 @include color-mode(dark) {
+	.application {
+		&:hover {
+			.application__icon {
+				color: $white;
+			}
 
+			.application__title {
+				span {
+					color: $black;
+					background-color: $white;
+				}
+			}
+		}
+	}
+
+	.application__title {
+		span {
+			background-color: $black;
+		}
+	}
 }

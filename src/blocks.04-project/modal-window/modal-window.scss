@@ -1,15 +1,20 @@
 .modal-window {
 	display: none;
 	flex-direction: column;
-	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 10;
-	height: 98%;
-	width: 98%;
-	margin: 0.5% 1% 1%;
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
 	background-color: $white;
+
+	@include media-breakpoint-up(sm) {
+		min-height: 98%;
+		width: 98%;
+		margin: 0.5% 1% 1%;
+	}
 }
 .modal-window__header {
 	display: flex;
@@ -28,11 +33,13 @@
 }
 
 .modal-window__content {
+	position: relative;
 	background: url("../../../public/images/window-header/header-bg.jpg");
 	padding: 24px;
 	font-size: 20px;
 	line-height: 1;
 	height: 100%;
+	flex-grow: 1;
 
 	@include media-breakpoint-up(md) {
 		font-size: 32px;
@@ -47,4 +54,18 @@
 	background: rgb(238,238,238);
 	padding: 0 4px;
 	margin: -5px 0;
+}
+
+@include color-mode(dark) {
+	.modal-window__header {
+		background: url("../../../public/images/modal-window/header_bg_dark.png");
+	}
+
+	.modal-window__content {
+		background: url("../../../public/images/window-header/header-bg_dark.png");
+	}
+
+	.modal-window__title {
+		background: rgb(17,17,17);
+	}
 }

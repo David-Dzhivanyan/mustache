@@ -1,3 +1,5 @@
+@import "/node_modules/ion-rangeslider/css/ion.rangeSlider.min.css";
+
 .television {
 	display: flex;
 	justify-content: space-between;
@@ -47,12 +49,38 @@
 }
 
 .television__range{
-	margin-bottom: 10px;
-}
-
-.television__input {
 	width: 100%;
 	max-width: 300px;
+	margin: 0 auto 10px;
+
+	.irs--round {
+		height: 20px;
+
+		.irs-handle {
+			border: none;
+			background-color: $black;
+			top: 50%;
+			transform: translateY(-25%);
+			width: 12px;
+			height: 12px;
+		}
+
+		.irs-bar {
+			top: 50%;
+			height: 6px;
+			background-color: $black;
+		}
+	}
+	.irs {
+		.irs {
+			top: 50%;
+			.irs-line {
+				top: 0;
+				height: 6px;
+			}
+		}
+	}
+
 }
 
 .television__list {
@@ -63,6 +91,7 @@
 	margin: 0 auto;
 
 	.img {
+		cursor: pointer;
 		width: 30%;
 		height: 30%;
 	}
@@ -70,4 +99,16 @@
 
 .television__type-mustache {
 	margin-bottom: 20px;
+}
+
+
+@include color-mode(dark) {
+	.television__frame { border: 1px solid $white; }
+
+	.television__range{
+		.irs--round {
+			.irs-handle { background-color: $white; }
+			.irs-bar { background-color: $white; }
+		}
+	}
 }

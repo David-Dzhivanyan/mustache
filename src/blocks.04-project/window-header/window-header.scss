@@ -6,12 +6,16 @@
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 30px;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1;
   width: 100%;
   min-height: 30px;
   padding: 2px 14px;
   border-bottom: 2px solid $black;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 28px;
+  }
 }
 
 .window-header__nav {
@@ -35,11 +39,15 @@
 
 .window-header__info {
   display: flex;
-  font-size: 23px;
+  font-size: 18px;
 
   .small {
     font-size: 14px;
     vertical-align: top;
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: 23px;
   }
 }
 
