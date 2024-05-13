@@ -1,7 +1,7 @@
 @use "sass:math";
 // TODO: добавляйте новые размеры изображений если планируете их использовать на сайте
 $image-control-size: (
-  '1200x200',
+  '560x380','1200x200',
 );
 @mixin image-size($width, $height, $unit: px) {
   &_#{$width}x#{$height} {

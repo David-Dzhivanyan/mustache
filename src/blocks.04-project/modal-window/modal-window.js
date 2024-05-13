@@ -18,9 +18,13 @@ class ModalWindow {
 
 	open = () =>{
 		this.onenBtn = document.querySelector('[data-modal="#'+ this.block.id +'"]');
-
 		this.onenBtn && this.onenBtn.addEventListener('click', () => {
 			this.block.style.display = 'flex';
+
+			this.onenBtn.dispatchEvent(new CustomEvent('open_' + this.block.id, {
+				detail: {},
+				bubbles: true
+			}));
 		})
 	};
 
