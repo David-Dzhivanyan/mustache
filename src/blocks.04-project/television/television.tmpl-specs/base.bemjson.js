@@ -8,7 +8,10 @@ const mustaches = [
 module.exports = [
 	{block: 'television', content: [
 			{elem: 'tv-wrapper', content: [
-					{block: 'img', lazy: true, src: './images/television/television.png'}
+					{elem: 'canvas', tag: 'canvas'},
+					{block: 'image', mods: {size: '560x380'}, content: [
+							{block: 'img', lazy: true, src: './images/television/television.png'}
+						]},
 				]},
 			{elem: 'constructor', content: [
 					{elem: 'frame'},
