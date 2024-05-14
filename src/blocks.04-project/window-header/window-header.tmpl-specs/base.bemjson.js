@@ -5,8 +5,12 @@ module.exports = [
               {block: 'fi', mods: {icon: 'mustache'}},
             ]},
           {block: 'a', cls: 'fw-bold', attrs: {href: ''}, content: 'mustache.com'},
-          {block: 'a', content: [
-              {block: 'window-header', elem: 'input', tag: 'input', attrs: {type: 'file'}, content: 'File'}
+          {elem: 'dropdown', cls: 'dropdown', content: [
+              {block: 'a', cls: 'dropdown-toggle', attrs: {'data-bs-toggle': 'dropdown', 'data-bs-offset': '0, 5px'}, content: 'File'},
+              {cls: 'dropdown-menu', content: [
+                  {block: 'window-header', elem: 'input', tag: 'input', attrs: {id: 'inputFile', type: 'file'}},
+                  {block: 'a', tag: 'label', mods: {white: true}, attrs: {href: '', for: 'inputFile'}, content: 'Open File'},
+                ]},
             ]},
           {elem: 'dropdown', cls: 'dropdown', content: [
               {block: 'a', cls: 'dropdown-toggle', attrs: {'data-bs-toggle': 'dropdown', 'data-bs-offset': '0, 5px'}, content: 'Help'},
