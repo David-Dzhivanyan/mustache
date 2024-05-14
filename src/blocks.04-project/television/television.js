@@ -13,8 +13,9 @@ class Television {
 		this.downloadBtn = this.block.querySelector('.btn-outline');
 
 		this.initSlider();
-		this.initCanvas();
 		this.choosingMustache(this.mustacheList.querySelector('.img'));
+		document.addEventListener('open_MODAL_TELEVISION', (event) => this.initCanvas(event))
+		this.initCanvas();
 
 		this.mustacheList.addEventListener('click', (event) => this.choosingMustache(event.target));
 		this.inputWrapper.addEventListener('change', this.mustacheSize);
@@ -30,7 +31,6 @@ class Television {
 	downloadImage = () => {
 		const file = document.querySelector('.window-header__input')
 
-		console.log(file.files)
 		if (file.files.length > 0) {
 			const dataUrl = this.canvas.toDataURL('image/png', 1);
 			const link = document.createElement('a');
@@ -70,10 +70,10 @@ class Television {
 		}
 	}
 
-	initCanvas = () => {
-		const context = this.canvas.getContext('2d');
-		document.addEventListener('open_MODAL_TELEVISION', (event) => {
+	initCanvas = (event) => {
+		if (event) {
 			if (event.detail.img) {
+				const context = this.canvas.getContext('2d');
 				const image = event.detail.img;
 				if (image.height <= image.width) {
 					this.canvas.width = this.canvasWrapper.clientWidth;
@@ -86,13 +86,16 @@ class Television {
 				context.drawImage(event.detail.img, 0, 0, this.canvas.width, this.canvas.height);
 
 				if (this.imageInFrame) {
+					this.imageSize = {
+						width: this.imageInFrame.clientWidth,
+						height: this.imageInFrame.clientHeight,
+					}
 					let canvasWidth = (this.canvas.width / 2) - this.imageSize.width / 2;
 					let canvasHeight = (this.canvas.height / 2) - this.imageSize.height / 2;
 					context.drawImage(this.imageInFrame, canvasWidth, canvasHeight, this.imageSize.width, this.imageSize.height);
 				}
 			}
-
-		})
+		}
 	}
 
 	initSlider = () => {
