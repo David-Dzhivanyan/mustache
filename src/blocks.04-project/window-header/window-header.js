@@ -42,6 +42,7 @@ class WindowHeader {
 		let time = setInterval(() => {
 			let date = new Date();
 			this.block.querySelector('.window-header__time').innerHTML = (date.getHours() + ":" + date.getMinutes()) + ' <span class="small">AM</span>'
+			this.block.querySelector('.window-header__date').innerHTML = `We applied <span class="fw-bold"> &nbsp;567&nbsp;</span> whinkers ${date.getDate()} ${date.toLocaleString('en-GB', { month: 'long' })} <span class="small">&nbsp;${date.getFullYear()}</span>`;
 		}, 1000);
 	}
 
