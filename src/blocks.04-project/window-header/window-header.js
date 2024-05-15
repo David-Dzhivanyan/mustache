@@ -28,7 +28,7 @@ class WindowHeader {
 				img.src = reader.result;
 				img.onload = () => {
 
-					document.getElementById('MODAL_TELEVISION').style.display = 'flex';
+					document.getElementById('MODAL_TELEVISION').classList.add('show');
 					document.dispatchEvent(new CustomEvent('open_MODAL_TELEVISION', {
 						detail: {img},
 						bubbles: true

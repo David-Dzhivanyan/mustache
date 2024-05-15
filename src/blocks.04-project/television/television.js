@@ -90,8 +90,8 @@ class Television {
 				this.canvasImage = event.detail.img;
 
 				if (this.canvasImage.height <= this.canvasImage.width) {
-					this.canvas.width = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04);
-					this.canvas.height = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04) * this.canvasImage.height / this.canvasImage.width;
+					this.canvas.width = (this.canvasWrapper.clientWidth * 0.85);
+					this.canvas.height = (this.canvasWrapper.clientWidth * 0.85) * this.canvasImage.height / this.canvasImage.width;
 				} else {
 					this.canvas.width = (this.canvasWrapper.clientHeight * 0.84) * this.canvasImage.width / this.canvasImage.height;
 					this.canvas.height = (this.canvasWrapper.clientHeight * 0.84);
@@ -151,8 +151,8 @@ class Television {
 
 	drawCanvas = (context, bgImage, X, Y) => {
 		if (bgImage.height <= bgImage.width) {
-			this.canvas.width = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04); //margin канваса в television.css
-			this.canvas.height = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04) * bgImage.height / bgImage.width;
+			this.canvas.width = (this.canvasWrapper.clientWidth * 0.85); //margin канваса в television.css
+			this.canvas.height = (this.canvasWrapper.clientWidth * 0.85) * bgImage.height / bgImage.width;
 		} else {
 			this.canvas.width = (this.canvasWrapper.clientHeight * 0.84) * bgImage.width / bgImage.height;
 			this.canvas.height = (this.canvasWrapper.clientHeight * 0.84); //height канваса в television.css

@@ -34,11 +34,11 @@
 
 .television__canvas {
 	position: absolute;
+	top: 50%;
 	left: 50%;
-	transform: translateX(-55%);
-	max-width: 100%;
+	transform: translate(-56%, -54%);
+	max-width: 85%;
 	max-height: 84%;
-	margin-top: 4%;
 }
 
 .television__constructor {
