@@ -55,6 +55,13 @@ class Television {
 			this.ionRangeSlider.update({
 				from: 100,
 			});
+
+			if (this.context) {
+				this.canvasCenterX = (this.canvas.width / 2) - this.imageSize.width / 2;
+				this.canvasCenterY = (this.canvas.height / 2) - this.imageSize.height / 2;
+
+				this.drawCanvas(this.context, this.canvasImage, this.mustacheX, this.mustacheY);
+			}
 		}
 	}
 
@@ -67,35 +74,104 @@ class Television {
 				width: this.imageInFrame.clientWidth,
 				height: this.imageInFrame.clientHeight,
 			}
+
+			if (this.context) {
+				this.drawCanvas(this.context, this.canvasImage, this.mustacheX, this.mustacheY);
+			}
 		}
 	}
-
+	handleCanvasMouseClick = (event) =>  {
+		this.canvasMouse(this.context, event)
+	}
 	initCanvas = (event) => {
 		if (event) {
 			if (event.detail.img) {
-				const context = this.canvas.getContext('2d');
-				const image = event.detail.img;
-				if (image.height <= image.width) {
-					this.canvas.width = this.canvasWrapper.clientWidth;
-					this.canvas.height = this.canvasWrapper.clientWidth * image.height / image.width;
-				} else {
-					this.canvas.width = this.canvasWrapper.clientHeight * image.width / image.height;
-					this.canvas.height = this.canvasWrapper.clientHeight;
-				}
+				this.context = this.canvas.getContext('2d');
+				this.canvasImage = event.detail.img;
 
-				context.drawImage(event.detail.img, 0, 0, this.canvas.width, this.canvas.height);
+				if (this.canvasImage.height <= this.canvasImage.width) {
+					this.canvas.width = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04);
+					this.canvas.height = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04) * this.canvasImage.height / this.canvasImage.width;
+				} else {
+					this.canvas.width = (this.canvasWrapper.clientHeight * 0.84) * this.canvasImage.width / this.canvasImage.height;
+					this.canvas.height = (this.canvasWrapper.clientHeight * 0.84);
+				}
 
 				if (this.imageInFrame) {
 					this.imageSize = {
 						width: this.imageInFrame.clientWidth,
 						height: this.imageInFrame.clientHeight,
 					}
-					let canvasWidth = (this.canvas.width / 2) - this.imageSize.width / 2;
-					let canvasHeight = (this.canvas.height / 2) - this.imageSize.height / 2;
-					context.drawImage(this.imageInFrame, canvasWidth, canvasHeight, this.imageSize.width, this.imageSize.height);
+					this.canvasCenterX = (this.canvas.width / 2);
+					this.canvasCenterY = (this.canvas.height / 2);
+
+					this.drawCanvas(this.context, this.canvasImage, this.canvasCenterX, this.canvasCenterY);
+
+					this.canvas.removeEventListener('click', this.handleCanvasMouseClick);
+					this.canvas.addEventListener('click', this.handleCanvasMouseClick);
 				}
 			}
 		}
+	}
+
+	canvasMouse = (context, event) => {
+		const rect = this.canvas.getBoundingClientRect();
+
+		this.imageSize = {
+			width: this.imageInFrame.clientWidth,
+			height: this.imageInFrame.clientHeight,
+		}
+
+		let mouseX = event.clientX - rect.left;
+		let mouseY = event.clientY - rect.top;
+		let count = 0;
+
+		let x = this.mustacheX;
+		let y = this.mustacheY;
+		const tick = () => {
+			console.log(count);
+			count++;
+
+
+			if (mouseX > x && mouseY > y) {
+				x += Math.abs(x - mouseX) / 20;
+				y += Math.abs(y - mouseY) / 20;
+			} else if (mouseX < x && mouseY < y) {
+				x -= Math.abs(x - mouseX) / 20;
+				y -= Math.abs(y - mouseY) / 20;
+			} else if (mouseX > x && mouseY < y) {
+				x += Math.abs(x - mouseX) / 20;
+				y -= Math.abs(y - mouseY) / 20;
+			} else {
+				x -= Math.abs(x - mouseX) / 20;
+				y += Math.abs(y - mouseY) / 20;
+			}
+
+			this.drawCanvas(context, this.canvasImage, x, y);
+
+			if(Math.round(x) !== Math.round(mouseX)) requestAnimationFrame(tick);
+		}
+		requestAnimationFrame(tick);
+
+
+		count = 0;
+	}
+
+	drawCanvas = (context, bgImage, X, Y) => {
+		if (bgImage.height <= bgImage.width) {
+			this.canvas.width = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04); //margin канваса в television.css
+			this.canvas.height = (this.canvasWrapper.clientWidth - this.canvasWrapper.clientWidth * 0.04) * bgImage.height / bgImage.width;
+		} else {
+			this.canvas.width = (this.canvasWrapper.clientHeight * 0.84) * bgImage.width / bgImage.height;
+			this.canvas.height = (this.canvasWrapper.clientHeight * 0.84); //height канваса в television.css
+		}
+
+		context.drawImage(bgImage, 0, 0, this.canvas.width, this.canvas.height);
+
+		this.mustacheX = X;
+		this.mustacheY = Y;
+
+		context.drawImage(this.imageInFrame, X - this.imageSize.width / 2, Y - this.imageSize.height / 2, this.imageSize.width, this.imageSize.height);
 	}
 
 	initSlider = () => {
