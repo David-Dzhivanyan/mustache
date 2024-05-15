@@ -13,7 +13,6 @@ class ModalWindow {
 
 		this.closeBtn && this.closeBtn.addEventListener('click', () => {
 			this.block.classList.remove('show');
-			// this.block.style.transform = 'scale(0)';
 		})
 	};
 
