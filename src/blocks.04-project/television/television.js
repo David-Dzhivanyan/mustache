@@ -124,15 +124,10 @@ class Television {
 
 		let mouseX = event.clientX - rect.left;
 		let mouseY = event.clientY - rect.top;
-		let count = 0;
 
 		let x = this.mustacheX;
 		let y = this.mustacheY;
 		const tick = () => {
-			console.log(count);
-			count++;
-
-
 			if (mouseX > x && mouseY > y) {
 				x += Math.abs(x - mouseX) / 20;
 				y += Math.abs(y - mouseY) / 20;
@@ -152,9 +147,6 @@ class Television {
 			if(Math.round(x) !== Math.round(mouseX)) requestAnimationFrame(tick);
 		}
 		requestAnimationFrame(tick);
-
-
-		count = 0;
 	}
 
 	drawCanvas = (context, bgImage, X, Y) => {

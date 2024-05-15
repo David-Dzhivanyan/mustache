@@ -4,7 +4,6 @@
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
-
 }
 
 .mustache__gif {
@@ -14,6 +13,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 100% !important;
+	padding-bottom: 20px;
 
 	.img {
 		height: 100% !important;
@@ -25,6 +25,7 @@
 	position: absolute;
 	height: 100%;
 	width: 100%;
+
 	.img {
 		object-fit: none;
 		max-width: 100%;
