@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="ua-no-js" lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.1, maximum-scale=1.0, minimal-ui, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>Mustache</title>
+    <link rel="shortcut icon" href="favicons/favicon.svg" type="image/x-icon">
+    <script data-skip-moving="true">
+        ! function(e, n) {
+            function r() {
+                var e = {
+                    elem: n.createElement("modernizr")
+                }.elem.style;
+                try {
+                    return e.fontSize = "3ch", -1 !== e.fontSize.indexOf("ch")
+                } catch (e) {
+                    return !1
+                }
+            }
+
+            function t() {
+                var n, r = e.crypto || e.msCrypto;
+                if (r && "getRandomValues" in r && "Uint32Array" in e) {
+                    var t = new Uint32Array(10),
+                        a = r.getRandomValues(t);
+                    n = a && "number" == typeof a[0]
+                }
+                return !!n
+            }
+            var a = n.documentElement.className;
+            a = a.replace("ua-no-js", "ua-js"), "performance" in e && t() && r() || navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform) && Promise && t() && r() ? a += " ua-modern" : a += " ua-no-modern", n.documentElement.className += " " + a
+        }(window, document);
+    </script>
+    <script data-skip-moving="true">
+        ! function(o, n) {
+            document.documentElement.className += "ontouchstart" in o || navigator.maxTouchPoints ? " ua-touch" : " ua-no-touch"
+        }(window);
+    </script>
+    <link rel="stylesheet" href="merged.css?1715791428894">
+</head>
+
+<body><!--noindex--><noscript class="page__alert">В вашем браузере отключен JavaScript. Многие элементы сайта могут работать некорректно.</noscript>
+    <div class="page__alert visible-no-modern">Ваш браузер устарел и не обеспечивает полноценную и безопасную работу с сайтом. Пожалуйста <a rel="nofollow" target="_blank" onclick="window.open(this.href, '_blank');return 0" href="https://browsehappy.com/">обновите</a> браузер чтобы улучшить взаимодействие с сайтом.</div><!--/noindex-->
+    <main class="main">
+        <div class="container-xxl">
+            <div class="main-window">
+                <div class="window-header">
+                    <div class="window-header__nav"><a class="a" data-modal="#MODAL_MUSTACHE" href="#"><i class="fi fi_icon_mustache"></i></a><a class="a fw-bold" href="">mustache.com</a>
+                        <div class="window-header__dropdown dropdown"><a class="a dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0, 5px" href="#">File</a>
+                            <div class="dropdown-menu"><input class="window-header__input" id="inputFile" type="file"><label class="a a_white" href="" for="inputFile">Open File</label></div>
+                        </div>
+                        <div class="window-header__dropdown dropdown"><a class="a dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="0, 5px" href="#">Help</a>
+                            <div class="dropdown-menu"><a class="a a_white" data-modal="#MODAL_INFO" href="#">Open info</a></div>
+                        </div>
+                    </div>
+                    <div class="window-header__info">
+                        <div class="window-header__date">We applied <span class="fw-bold"> &nbsp;567&nbsp;</span> whinkers 5 May <span class="small">&nbsp;2024</span></div>
+                        <div class="window-header__time">19:33 <span class="small">AM</span></div>
+                    </div>
+                </div>
+                <div class="main-window__inner">
+                    <div class="main-window__applications"><a class="application" data-modal="#MODAL_TELEVISION">
+                            <div class="application__icon"><img class="img" src="./images/application/tv.png"></div>
+                            <div class="application__title"><span>Television</span></div>
+                        </a><a class="application" data-modal="#MODAL_MUSTACHE-INFO">
+                            <div class="application__icon"><img class="img" src="./images/application/mustache_white.svg"></div>
+                            <div class="application__title"><span>Mustache</span><br><span>Info</span></div>
+                        </a><a class="application">
+                            <div class="application__icon"><img class="img" src="./images/application/twitter.svg"></div>
+                            <div class="application__title"><span>Twitter</span></div>
+                        </a><a class="application">
+                            <div class="application__icon"><img class="img" src="./images/application/tg.svg"></div>
+                            <div class="application__title"><span>Telegram</span></div>
+                        </a><a class="application">
+                            <div class="application__icon"><img class="img" src="./images/application/dex.svg"></div>
+                            <div class="application__title"><span>Dex</span><br><span>Tools</span></div>
+                        </a><a class="application">
+                            <div class="application__icon"><img class="img" src="./images/application/eagle.svg"></div>
+                            <div class="application__title"><span>Dex</span></div>
+                        </a></div>
+                    <div class="modal-window" id="MODAL_MUSTACHE-INFO">
+                        <div class="modal-window__header">
+                            <div class="modal-window__title"><img class="img" src="./images/application/mustache_white.svg">
+                                <div>Mustache Info</div>
+                            </div><img class="img" src="./images/modal-window/close.png" data-close>
+                        </div>
+                        <div class="modal-window__content">
+                            <div class="w-75 m-auto my-20">
+                                <div class="mb-20 text-center"><span class="fw-bold">Lorem ipsum dolor</span> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                                <div class="text-center py-20"><img class="img mw-100" src="./images/modal-window/mustache_3D.png"></div>
+                                <div class="my-20 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="text-uppercase">Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-window" id="MODAL_INFO">
+                        <div class="modal-window__header">
+                            <div class="modal-window__title opacity-0"> </div><img class="img" src="./images/modal-window/close.png" data-close>
+                        </div>
+                        <div class="modal-window__content">
+                            <div class="fw-bold mb-12">help with creation</div>
+                            <div class="mb-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+                            <div class="mb-20">Velit aliquet sagittis id consectetur. Pretium nibh ipsum consequat nisl vel pretium.</div>
+                            <div class="mb-20">Sit amet nisl suscipit adipiscing. Habitant morbi tristique senectus et netus et malesuada fames.</div>
+                            <div class="mb-20">Dignissim cras tincidunt lobortis feugiat vivamus at augue.Urna porttitor rhoncus dolor purus non enim. Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus.</div>
+                            <div class="mb-20">Platea dictumst quisque sagittis purus sit amet volutpat. Tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque.</div>
+                        </div>
+                    </div>
+                    <div class="modal-window" id="MODAL_TELEVISION">
+                        <div class="modal-window__header">
+                            <div class="modal-window__title"><img class="img" src="./images/application/tv.png">
+                                <div>Television</div>
+                            </div><img class="img" src="./images/modal-window/close.png" data-close>
+                        </div>
+                        <div class="modal-window__content">
+                            <div class="television">
+                                <div class="television__tv-wrapper"><canvas class="television__canvas"></canvas>
+                                    <div class="image image_size_560x380">
+                                        <div class="image__inner"><img class="img" src="./images/television/television.png"></div>
+                                    </div>
+                                </div>
+                                <div class="television__constructor">
+                                    <div class="television__frame"></div>
+                                    <div class="television__range">
+                                        <div>mustache size:</div><input class="television__input" type="range">
+                                    </div>
+                                    <div class="television__type-mustache">
+                                        <div class="mb-4">type of mustache:</div>
+                                        <div class="television__list"><img class="img" src="./images/television/mustache-1.svg"><img class="img" src="./images/television/mustache-2.svg"><img class="img" src="./images/television/mustache-3.svg"><img class="img" src="./images/television/mustache-4.svg"></div>
+                                    </div><a class="btn btn-outline" role="button" href="#">Download Image</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-window" id="MODAL_MUSTACHE">
+                        <div class="modal-window__header">
+                            <div class="modal-window__title opacity-0"> </div><img class="img" src="./images/modal-window/close.png" data-close>
+                        </div>
+                        <div class="modal-window__content p-0">
+                            <div class="mustache">
+                                <div class="mustache__bg"><img class="img" src="./images/mustache/mustache_bg.png"></div>
+                                <div class="mustache__gif"><img src="./images/mustache/mustache-3d.gif"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-window__theme-button"><img class="img" src="./images/main-window/theme.png"></div>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="merged.js?1715791428894"></script>
+
+</html>
