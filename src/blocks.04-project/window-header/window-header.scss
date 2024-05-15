@@ -12,6 +12,8 @@
   min-height: 30px;
   padding: 2px 14px;
   border-bottom: 2px solid $black;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 
   @include media-breakpoint-up(sm) {
     font-size: 28px;

@@ -1,5 +1,5 @@
 .modal-window {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	position: absolute;
 	top: 0;
@@ -9,6 +9,15 @@
 	width: 100%;
 	margin: 0;
 	background-color: $white;
+
+	transition: all 0.4s ease-in-out;
+	transform: scale(0);
+	pointer-events: none;
+
+	&.show {
+		transform: scale(1);
+		pointer-events: initial;
+	}
 
 	@include media-breakpoint-up(sm) {
 		min-height: 98%;

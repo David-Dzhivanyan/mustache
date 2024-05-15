@@ -12,14 +12,15 @@ class ModalWindow {
 		this.closeBtn = this.block.querySelector('[data-close]');
 
 		this.closeBtn && this.closeBtn.addEventListener('click', () => {
-			this.block.style.display = 'none';
+			this.block.classList.remove('show');
+			// this.block.style.transform = 'scale(0)';
 		})
 	};
 
 	open = () =>{
 		this.onenBtn = document.querySelector('[data-modal="#'+ this.block.id +'"]');
 		this.onenBtn && this.onenBtn.addEventListener('click', () => {
-			this.block.style.display = 'flex';
+			this.block.classList.add('show');
 
 			this.onenBtn.dispatchEvent(new CustomEvent('open_' + this.block.id, {
 				detail: {},
