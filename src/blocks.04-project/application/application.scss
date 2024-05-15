@@ -3,6 +3,8 @@
 	align-items: center;
 	flex-direction: column;
 	max-width: 90px;
+	text-decoration: none;
+
 
 	&:hover {
 		cursor: pointer;
@@ -34,10 +36,19 @@
 	font-size: 26px;
 	line-height: 0.8;
 	text-align: center;
+	text-decoration: none;
 
 	span {
 		padding: 0 10px;
 		background-color: $white;
+		color: $black;
+		text-decoration: none;
+
+		&:active,
+		&:hover {
+			text-decoration: none;
+			color: $black;
+		}
 	}
 }
 
@@ -60,6 +71,12 @@
 	.application__title {
 		span {
 			background-color: $black;
+			color: $white;
+
+			&:active,
+			&:hover {
+				color: $white;
+			}
 		}
 	}
 }
