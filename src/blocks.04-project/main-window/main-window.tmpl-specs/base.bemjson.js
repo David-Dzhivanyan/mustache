@@ -17,6 +17,8 @@ module.exports = [
           require('../../modal-window/modal-window.tmpl-specs/all.bemjson'),
         ]},
       {elem: 'theme-button', content: [
+          {elem: 'theme-bg'},
+          {elem: 'theme-description', content: 'Hello! Change the subject here'},
           {block: 'img', src: './images/main-window/theme.png'}
         ]},
     ]},

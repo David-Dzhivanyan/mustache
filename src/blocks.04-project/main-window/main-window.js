@@ -1,34 +1,40 @@
-// class MainWindow {
-// 	constructor(elem) {
-// 		this.block = elem;
-// 		this.block.MainWindow = this;
-// 		this.html = document.querySelector('html');
-// 		this.themeButton = document.querySelector('.main-window__theme-button');
-//
-// 		this.init();
-// 	}
-//
-// 	init = () => {
-//
-// 		this.themeButton.addEventListener('click', () => {
-// 			let theme = this.html.dataset.bsTheme;
-// 			if(!theme || theme === 'light') {
-// 				this.html.dataset.bsTheme = 'dark';
-// 			} else {
-// 				this.html.dataset.bsTheme = 'light';
-// 			}
-// 		})
-// 		this.block.classList.add('main-window_inited');
-// 	};
-//
-// 	static init() {
-// 		return Array.from(document.querySelectorAll('.main-window:not(.main-window_inited)')).forEach((elem) => new MainWindow(elem));
-// 	}
-// }
-//
-// document.addEventListener('DOMContentLoaded', MainWindow.init);
-//
-// // Экспорт;
-// window.Block = window.Block ? window.Block : {};
-// window.Block.MainWindow = MainWindow;
-//
+class MainWindow {
+	constructor(elem) {
+		this.block = elem;
+		this.block.MainWindow = this;
+    this.themeDescription = $('.main-window__theme-description');
+
+		this.init();
+	}
+
+	init = () => {
+    this.textPrinting();
+		this.block.classList.add('main-window_inited');
+	};
+
+  textPrinting = () => {
+    let text = this.themeDescription[0].textContent,
+      p = 0;
+    this.themeDescription[0].textContent = '';
+    const printSmbl = () =>  {
+      let timeout = Math.round(Math.random() * 150);
+      this.themeDescription.html(this.themeDescription.html()+text[p]);
+      p++;
+      if (p < text.length) {
+        setTimeout(printSmbl, timeout);
+      }
+    }
+    setTimeout(printSmbl, 100);
+  }
+
+	static init() {
+		return Array.from(document.querySelectorAll('.main-window:not(.main-window_inited)')).forEach((elem) => new MainWindow(elem));
+	}
+}
+
+document.addEventListener('DOMContentLoaded', MainWindow.init);
+
+// Экспорт;
+window.Block = window.Block ? window.Block : {};
+window.Block.MainWindow = MainWindow;
+

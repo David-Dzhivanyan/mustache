@@ -50,42 +50,40 @@
   bottom: 20px;
 
   @include media-breakpoint-up(sm) {
-
-    &::before {
-      content: 'Hello! Change the subject here';
-      position: absolute;
-      top: -50px;
-      left: -128px;
-      z-index: 1;
-      pointer-events: none;
-      font-size: 20px;
-      font-family: $font-family-sans-serif;
-      white-space: nowrap;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -50px;
-      left: -150px;
-      z-index: 0;
-      pointer-events: none;
-      background: url("../../../public/images/main-window/theme-title.png") no-repeat 100% / cover;
-      width: 220px;
-      height: 40px;
-    }
   }
+}
+
+.main-window__theme-bg {
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: -150px;
+    z-index: 0;
+    pointer-events: none;
+    background: url("../../../public/images/main-window/theme-title.png") no-repeat 100% / cover;
+    width: 220px;
+    height: 40px;
+}
+
+.main-window__theme-description {
+    position: absolute;
+    top: -50px;
+    left: -128px;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 20px;
+    font-family: $font-family-sans-serif;
+    white-space: nowrap;
 }
 
 @include color-mode(dark) {
   .main-window {
     background-image: url("../../../public/images/main-window/main-bg_dark.jpg");
   }
-
-  .main-window__theme-button {
-    &::after {
+  .main-window__theme-description {
+    color: $white;
+  }
+  .main-window__theme-bg {
       background: url("../../../public/images/main-window/theme-title_dark.png") no-repeat 100% / cover;
-    }
   }
 }
