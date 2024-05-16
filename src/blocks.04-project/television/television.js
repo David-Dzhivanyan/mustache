@@ -39,8 +39,6 @@ class Television {
 
 			context.drawImage(this.canvasImage, 0, 0, canvas.width, canvas.height);
 
-			console.log(this.canvasImage.width, this.canvasImage.height, this.canvas.width, this.canvas.height, this.canvasImage.width / this.canvas.width, this.canvasImage.height / this.canvas.height)
-
 			const attitudeWidth = this.canvasImage.width / this.canvas.width;
 
 			const attitudeHeight = this.canvasImage.height / this.canvas.height;
