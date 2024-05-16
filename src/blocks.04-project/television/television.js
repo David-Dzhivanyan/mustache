@@ -80,9 +80,7 @@ class Television {
 			}
 		}
 	}
-	handleCanvasMouseClick = (event) =>  {
-		this.canvasMouse(this.context, event)
-	}
+
 	initCanvas = (event) => {
 		if (event) {
 			if (event.detail.img) {
@@ -107,46 +105,55 @@ class Television {
 
 					this.drawCanvas(this.context, this.canvasImage, this.canvasCenterX, this.canvasCenterY);
 
-					this.canvas.removeEventListener('click', this.handleCanvasMouseClick);
-					this.canvas.addEventListener('click', this.handleCanvasMouseClick);
+					// this.canvas.removeEventListener('mousedown', this.handleCanvasMouseClick);
+					// this.canvas.addEventListener('mousedown', this.handleCanvasMouseClick);
+					this.canvasMouse(this.context);
 				}
 			}
 		}
 	}
-
-	canvasMouse = (context, event) => {
+	// handleCanvasMouseMove = (event) =>  {
+	// 	const rect = this.canvas.getBoundingClientRect();
+	//
+	// 	let mouseX = event.clientX - rect.left;
+	// 	let mouseY = event.clientY - rect.top;
+	//
+	// 	this.mustacheMove(mouseX, mouseY)
+	// }
+	mustacheMove = (event) => {
 		const rect = this.canvas.getBoundingClientRect();
-
-		this.imageSize = {
-			width: this.imageInFrame.clientWidth,
-			height: this.imageInFrame.clientHeight,
-		}
 
 		let mouseX = event.clientX - rect.left;
 		let mouseY = event.clientY - rect.top;
 
-		let x = this.mustacheX;
-		let y = this.mustacheY;
-		const tick = () => {
-			if (mouseX > x && mouseY > y) {
-				x += Math.abs(x - mouseX) / 20;
-				y += Math.abs(y - mouseY) / 20;
-			} else if (mouseX < x && mouseY < y) {
-				x -= Math.abs(x - mouseX) / 20;
-				y -= Math.abs(y - mouseY) / 20;
-			} else if (mouseX > x && mouseY < y) {
-				x += Math.abs(x - mouseX) / 20;
-				y -= Math.abs(y - mouseY) / 20;
-			} else {
-				x -= Math.abs(x - mouseX) / 20;
-				y += Math.abs(y - mouseY) / 20;
+		this.drawCanvas(this.context, this.canvasImage, mouseX, mouseY);
+	}
+
+	canvasMouse = () => {
+		this.canvas.addEventListener('mousedown', (event) => {
+			const rect = this.canvas.getBoundingClientRect();
+
+			this.imageSize = {
+				width: this.imageInFrame.clientWidth,
+				height: this.imageInFrame.clientHeight,
 			}
 
-			this.drawCanvas(context, this.canvasImage, x, y);
+			let mouseX = event.clientX - rect.left;
+			let mouseY = event.clientY - rect.top;
 
-			if(Math.round(x) !== Math.round(mouseX)) requestAnimationFrame(tick);
-		}
-		requestAnimationFrame(tick);
+			let x = this.mustacheX;
+			let y = this.mustacheY;
+
+			if (Math.abs(Math.max(mouseX, x) - Math.min(mouseX, x)) < this.imageSize.width && Math.abs(Math.max(mouseY, y) - Math.min(mouseY, y)) < this.imageSize.height) {
+				this.drawCanvas(this.context, this.canvasImage, mouseX, mouseY);
+
+				this.canvas.addEventListener('mousemove', this.mustacheMove);
+			}
+		});
+
+		this.canvas.addEventListener('mouseup', () => {
+			this.canvas.removeEventListener('mousemove', this.mustacheMove);
+		})
 	}
 
 	drawCanvas = (context, bgImage, X, Y) => {
