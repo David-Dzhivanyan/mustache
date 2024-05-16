@@ -32,7 +32,25 @@ class Television {
 		const file = document.querySelector('.window-header__input')
 
 		if (file.files.length > 0) {
-			const dataUrl = this.canvas.toDataURL('image/png', 1);
+			const canvas = document.createElement('canvas');
+			const context = canvas.getContext('2d');
+			canvas.width = this.canvasImage.width;
+			canvas.height = this.canvasImage.height;
+
+			context.drawImage(this.canvasImage, 0, 0, canvas.width, canvas.height);
+
+			console.log(this.canvasImage.width, this.canvasImage.height, this.canvas.width, this.canvas.height, this.canvasImage.width / this.canvas.width, this.canvasImage.height / this.canvas.height)
+
+			const attitudeWidth = this.canvasImage.width / this.canvas.width;
+
+			const attitudeHeight = this.canvasImage.height / this.canvas.height;
+
+			const mustacheWidth = this.imageSize.width * attitudeWidth;
+			const mustacheHeight = this.imageSize.height * attitudeHeight;
+
+			context.drawImage(this.imageInFrame, this.mustacheX * attitudeWidth - mustacheWidth / 2, this.mustacheY * attitudeHeight - mustacheHeight / 2, mustacheWidth, mustacheHeight);
+
+			const dataUrl = canvas.toDataURL('image/png', 1);
 			const link = document.createElement('a');
 			link.href = dataUrl;
 			link.download = 'mustache.png';
