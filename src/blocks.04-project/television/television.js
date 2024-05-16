@@ -105,55 +105,67 @@ class Television {
 
 					this.drawCanvas(this.context, this.canvasImage, this.canvasCenterX, this.canvasCenterY);
 
-					// this.canvas.removeEventListener('mousedown', this.handleCanvasMouseClick);
-					// this.canvas.addEventListener('mousedown', this.handleCanvasMouseClick);
-					this.canvasMouse(this.context);
+					this.canvas.removeEventListener('mousedown', this.canvasMouseHandleMousemove);
+					this.canvas.addEventListener('mousedown', this.canvasMouseHandleMousemove);
+					this.canvas.addEventListener('mouseup', () => {
+						this.canvas.removeEventListener('mousemove', this.mustacheMove);
+					})
+
+					this.canvas.removeEventListener('touchstart', this.canvasMouseHandleMousemove);
+					this.canvas.addEventListener('touchstart', this.canvasMouseHandleTouchmove);
+					this.canvas.addEventListener('touchend', () => {
+						this.canvas.removeEventListener('touchmove', this.mustacheMove);
+					})
 				}
 			}
 		}
 	}
-	// handleCanvasMouseMove = (event) =>  {
-	// 	const rect = this.canvas.getBoundingClientRect();
-	//
-	// 	let mouseX = event.clientX - rect.left;
-	// 	let mouseY = event.clientY - rect.top;
-	//
-	// 	this.mustacheMove(mouseX, mouseY)
-	// }
+
+	canvasMouseHandleMousemove = (event) => {
+		this.canvasMouse(event, 'mousemove')
+	}
+	canvasMouseHandleTouchmove = (event) => {
+		this.canvasMouse(event, 'touchmove')
+	}
 	mustacheMove = (event) => {
 		const rect = this.canvas.getBoundingClientRect();
 
 		let mouseX = event.clientX - rect.left;
 		let mouseY = event.clientY - rect.top;
 
+		if (event.type === 'touchmove') {
+			mouseX = event.touches[0].clientX - rect.left;
+			mouseY = event.touches[0].clientY - rect.top;
+		}
+
 		this.drawCanvas(this.context, this.canvasImage, mouseX, mouseY);
 	}
 
-	canvasMouse = () => {
-		this.canvas.addEventListener('mousedown', (event) => {
-			const rect = this.canvas.getBoundingClientRect();
+	canvasMouse = (event, eventMove) => {
+		event.preventDefault();
+		const rect = this.canvas.getBoundingClientRect();
 
-			this.imageSize = {
-				width: this.imageInFrame.clientWidth,
-				height: this.imageInFrame.clientHeight,
-			}
+		this.imageSize = {
+			width: this.imageInFrame.clientWidth,
+			height: this.imageInFrame.clientHeight,
+		}
 
-			let mouseX = event.clientX - rect.left;
-			let mouseY = event.clientY - rect.top;
+		let mouseX = event.clientX - rect.left;
+		let mouseY = event.clientY - rect.top;
 
-			let x = this.mustacheX;
-			let y = this.mustacheY;
+		if (event.type === 'touchstart') {
+			mouseX = event.touches[0].clientX - rect.left;
+			mouseY = event.touches[0].clientY - rect.top;
+		}
 
-			if (Math.abs(Math.max(mouseX, x) - Math.min(mouseX, x)) < this.imageSize.width && Math.abs(Math.max(mouseY, y) - Math.min(mouseY, y)) < this.imageSize.height) {
-				this.drawCanvas(this.context, this.canvasImage, mouseX, mouseY);
+		let x = this.mustacheX;
+		let y = this.mustacheY;
 
-				this.canvas.addEventListener('mousemove', this.mustacheMove);
-			}
-		});
+		if (Math.abs(Math.max(mouseX, x) - Math.min(mouseX, x)) < this.imageSize.width && Math.abs(Math.max(mouseY, y) - Math.min(mouseY, y)) < this.imageSize.height) {
+			this.drawCanvas(this.context, this.canvasImage, mouseX, mouseY);
 
-		this.canvas.addEventListener('mouseup', () => {
-			this.canvas.removeEventListener('mousemove', this.mustacheMove);
-		})
+			this.canvas.addEventListener(eventMove, this.mustacheMove);
+		}
 	}
 
 	drawCanvas = (context, bgImage, X, Y) => {
