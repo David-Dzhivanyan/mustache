@@ -11,22 +11,43 @@ class Television {
 		this.input = $('.television__input');
 		this.inputWrapper = this.block.querySelector('.television__range');
 		this.downloadBtn = this.block.querySelector('.btn-outline');
+		this.colorBtn = [this.block.querySelector('.television__color-white'), this.block.querySelector('.television__color-black')];
 
 		this.initSlider();
 		this.choosingMustache(this.mustacheList.querySelector('.img'));
-		document.addEventListener('open_MODAL_TELEVISION', (event) => this.initCanvas(event))
+		document.addEventListener('open_MODAL_TELEVISION', (event) => this.initCanvas(event));
 		this.initCanvas();
 
 		this.mustacheList.addEventListener('click', (event) => this.choosingMustache(event.target));
 		this.inputWrapper.addEventListener('change', this.mustacheSize);
-		this.downloadBtn.addEventListener('click', this.downloadImage)
+		this.downloadBtn.addEventListener('click', this.downloadImage);
 
+		this.changeColor();
 		this.init();
 	}
 
 	init = () => {
 		this.block.classList.add('television_inited');
 	};
+
+	changeColor = () => {
+		this.colorBtn.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				this.colorBtn.forEach((btn) => btn.classList.toggle('active'));
+
+				let imgs = this.block.querySelector('.television__constructor').querySelectorAll('.img');
+				imgs.forEach((img) => {
+					let imgSrc = img.src;
+					if (!imgSrc.includes('_dark')) {
+						imgSrc = imgSrc.replace(/(\.\w+)$/, '_dark$1');
+					} else {
+						imgSrc = imgSrc.replace('_dark', '');
+					}
+					img.src = imgSrc;
+				});
+			})
+		})
+	}
 
 	downloadImage = () => {
 		const file = document.querySelector('.window-header__input')

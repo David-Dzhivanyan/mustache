@@ -6,6 +6,10 @@
 	flex-direction: column;
 	gap: 20px;
 
+	.btn  {
+		margin-bottom: 12px;
+	}
+
 	@include media-breakpoint-up(md) {
 		flex-direction: row;
 		padding: 50px 20px;
@@ -104,15 +108,20 @@
 
 .television__list {
 	display: flex;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	gap: 10px;
 	max-width: 250px;
 	margin: 0 auto;
+}
+
+.television__img {
+	display: flex;
+	align-items: center;
 
 	.img {
 		cursor: pointer;
-		width: 30%;
-		height: 30%;
+		vertical-align: middle;
 
 		&:hover {
 			background-color: $black;
@@ -124,6 +133,30 @@
 	margin-bottom: 20px;
 }
 
+.television__color {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.television__color-white,
+.television__color-black {
+	width: 20px;
+	height: 20px;
+	border: 1px solid $black;
+
+	&.active {
+		border: 2px solid $gray-600;
+	}
+}
+
+.television__color-white {
+	background-color: $white;
+}
+
+.television__color-black {
+	background-color: $black;
+}
 
 @include color-mode(dark) {
 	.television__frame { border: 1px solid $white; }

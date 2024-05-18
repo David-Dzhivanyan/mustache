@@ -40,6 +40,8 @@ class Main {
 		this.modalWindow.forEach((item) => {
 			let imgs = item.querySelectorAll('.img');
 			imgs.forEach((img) => {
+				if(img.closest('.television__constructor')) return;
+
 				let imgSrc = img.src;
 				if (!imgSrc.includes('_dark')) {
 					imgSrc = imgSrc.replace(/(\.\w+)$/, '_dark$1');

@@ -3,6 +3,8 @@ const mustaches = [
 	'mustache-2',
 	'mustache-3',
 	'mustache-4',
+	'mustache-5',
+	'mustache-6',
 ];
 
 module.exports = [
@@ -21,11 +23,19 @@ module.exports = [
 						]},
 					{elem: 'type-mustache', content: [
 							{cls: 'mb-4', content: 'type of mustache:'},
-							{elem: 'list', content: mustaches.map((mustache) => [
-									{block: 'img', lazy: true, src: './images/television/' + mustache + '.svg'}
+							{elem: 'list', content: mustaches.map((mustache, index) => [
+									{elem: 'img', content: [
+											{block: 'img', lazy: true, src: index < 4 ? './images/television/' + mustache + '.svg' : './images/television/' + mustache + '.png'}
+										]},
 								])}
 						]},
-					{block: 'btn', cls: 'btn-outline', content: 'Download Image'}
+					{block: 'btn', cls: 'btn-outline', content: 'Download Image'},
+					{cls: 'mb-4', content: 'change color:'},
+
+					{elem: 'color', content: [
+							{elem: 'color-white', cls: 'active'},
+							{elem: 'color-black'},
+						]}
 				]}
 		]}
 ];
