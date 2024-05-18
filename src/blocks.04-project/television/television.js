@@ -81,6 +81,10 @@ class Television {
 
 	choosingMustache = (target) => {
 		if(target.classList.contains('img')) {
+
+			this.mustacheList.querySelectorAll('.img').forEach((img) => img.classList.remove('current'));
+			target.classList.add('current');
+
 			this.mustachePlace.innerHTML = `<img class="img" src="${target.src}">`;
 			this.imageInFrame = this.mustachePlace.querySelector('.img');
 
@@ -104,8 +108,12 @@ class Television {
 
 	mustacheSize = () => {
 		if (this.imageInFrame) {
-			this.imageInFrame.style.width = (60 * this.ionRangeSlider.result.from / 100) + 'px';
-			this.imageInFrame.style.height = (30 * this.ionRangeSlider.result.from / 100) + 'px';
+			const current = this.mustacheList.querySelector('.current');
+			const width = current.clientWidth;
+			const height = current.clientHeight;
+
+			this.imageInFrame.style.width = (width * this.ionRangeSlider.result.from / 100) + 'px';
+			this.imageInFrame.style.height = (height *  this.ionRangeSlider.result.from / 100) + 'px';
 
 			this.imageSize = {
 				width: this.imageInFrame.clientWidth,
@@ -136,7 +144,8 @@ class Television {
 					this.imageSize = {
 						width: this.imageInFrame.clientWidth,
 						height: this.imageInFrame.clientHeight,
-					}
+					};
+
 					this.canvasCenterX = (this.canvas.width / 2);
 					this.canvasCenterY = (this.canvas.height / 2);
 

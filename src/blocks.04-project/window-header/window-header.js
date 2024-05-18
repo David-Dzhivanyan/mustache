@@ -19,20 +19,22 @@ class WindowHeader {
 	fileUpload = () => {
 		this.input.addEventListener('change', () => {
 			let file = this.input.files[0];
-			let reader = new FileReader();
-			reader.readAsDataURL(file);
+			if (file) {
+				let reader = new FileReader();
+				reader.readAsDataURL(file);
 
-			reader.onload = () => {
-				let img = new Image()
+				reader.onload = () => {
+					let img = new Image()
 
-				img.src = reader.result;
-				img.onload = () => {
+					img.src = reader.result;
+					img.onload = () => {
 
-					document.getElementById('MODAL_TELEVISION').classList.add('show');
-					document.dispatchEvent(new CustomEvent('open_MODAL_TELEVISION', {
-						detail: {img},
-						bubbles: true
-					}));
+						document.getElementById('MODAL_TELEVISION').classList.add('show');
+						document.dispatchEvent(new CustomEvent('open_MODAL_TELEVISION', {
+							detail: {img},
+							bubbles: true
+						}));
+					}
 				}
 			}
 		});
