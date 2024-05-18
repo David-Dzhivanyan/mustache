@@ -179,4 +179,13 @@
 			.irs-bar { background-color: $white; }
 		}
 	}
+
+	.television__color-white,
+	.television__color-black {
+		border: 1px solid $white;
+
+		&.active {
+			border: 2px solid $gray-600;
+		}
+	}
 }
