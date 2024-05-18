@@ -85,8 +85,11 @@ class Television {
 			this.mustacheList.querySelectorAll('.img').forEach((img) => img.classList.remove('current'));
 			target.classList.add('current');
 
-			this.mustachePlace.innerHTML = `<img class="img" src="${target.src}">`;
+			this.mustachePlace.innerHTML = `<img class="img fade" src="${target.src}">`;
 			this.imageInFrame = this.mustachePlace.querySelector('.img');
+			setTimeout(() => {
+				this.mustachePlace.querySelector('.img').classList.add('show');
+			}, 100)
 
 			this.imageSize = {
 				width: this.imageInFrame.clientWidth,

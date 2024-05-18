@@ -66,6 +66,18 @@
 	max-width: 200px;
 	margin: 0 auto 8px;
 
+	.img {
+		transition: opacity 0.3s ease-in-out;
+
+		&.fade {
+			opacity: 0;
+		}
+
+		&.show {
+			opacity: 1;
+		}
+	}
+
 	@include media-breakpoint-up(md) {
 		height: 135px;
 	}
