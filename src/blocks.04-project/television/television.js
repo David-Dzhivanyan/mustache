@@ -57,6 +57,8 @@ class Television {
 			const context = canvas.getContext('2d');
 			canvas.width = this.canvasImage.width;
 			canvas.height = this.canvasImage.height;
+			
+			console.log(this.canvasImage.height, this.canvasImage.width);
 
 			context.drawImage(this.canvasImage, 0, 0, canvas.width, canvas.height);
 
@@ -131,6 +133,8 @@ class Television {
 			if (event.detail.img) {
 				this.context = this.canvas.getContext('2d');
 				this.canvasImage = event.detail.img;
+
+				console.log(this.canvasImage.height, this.canvasImage.width);
 
 				if (this.canvasImage.height <= this.canvasImage.width) {
 					this.canvas.width = (this.canvasWrapper.clientWidth * 0.85);

@@ -9,13 +9,19 @@ module.exports = [
               {block: 'a', cls: 'dropdown-toggle', attrs: {'data-bs-toggle': 'dropdown', 'data-bs-offset': '0, 5px'}, content: 'File'},
               {cls: 'dropdown-menu', content: [
                   {block: 'window-header', elem: 'input', tag: 'input', attrs: {id: 'inputFile', type: 'file'}},
-                  {block: 'a', tag: 'label', mods: {white: true}, attrs: {href: '', for: 'inputFile'}, content: 'Open File'},
+                  {block: 'a', tag: 'label', mods: {white: true}, attrs: {href: '', for: 'inputFile'}, content: [
+                      {tag: 'span', content: 'Open File'},
+                      {block: 'img', src: './images/main-window/file.png'}
+                    ]},
                 ]},
             ]},
           {elem: 'dropdown', cls: 'dropdown', content: [
               {block: 'a', cls: 'dropdown-toggle', attrs: {'data-bs-toggle': 'dropdown', 'data-bs-offset': '0, 5px'}, content: 'Help'},
               {cls: 'dropdown-menu', content: [
-                  {block: 'a', mods: {white: true}, attrs: {'data-modal': '#MODAL_INFO'}, content: 'Open info'}
+                  {block: 'a', mods: {white: true}, attrs: {'data-modal': '#MODAL_INFO'}, content: [
+                      {tag: 'span', content: 'Open info'},
+                      {block: 'img', src: './images/main-window/info.png'}
+                    ]},
                 ]},
             ]},
         ]},

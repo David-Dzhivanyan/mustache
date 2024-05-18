@@ -54,6 +54,13 @@
 }
 
 .window-header__dropdown {
+
+  .img {
+    width: 16px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+
   .dropdown-toggle {
     &::after {
       display: none;
