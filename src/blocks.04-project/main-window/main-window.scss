@@ -30,10 +30,18 @@
   column-gap: 30px;
   row-gap: 16px;
 
+	.application {
+		flex: 1 1 100%;
+	}
+
   @include media-breakpoint-up(sm) {
     justify-content: flex-start;
     row-gap: 30px;
     column-gap: 60px;
+
+		.application {
+			flex-basis: initial;
+		}
   }
 
   @include media-breakpoint-up(xl) {
