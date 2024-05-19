@@ -36,7 +36,9 @@ class Television {
 				this.colorBtn.forEach((btn) => btn.classList.toggle('active'));
 
 				let imgs = this.block.querySelector('.television__constructor').querySelectorAll('.img');
-				imgs.forEach((img) => {
+				imgs.forEach((img, index) => {
+					if (index > imgs.length - 3) return;
+
 					let imgSrc = img.src;
 					if (!imgSrc.includes('_dark')) {
 						imgSrc = imgSrc.replace(/(\.\w+)$/, '_dark$1');

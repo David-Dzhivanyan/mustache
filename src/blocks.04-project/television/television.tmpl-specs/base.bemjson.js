@@ -3,8 +3,8 @@ const mustaches = [
 	'mustache-2',
 	'mustache-3',
 	'mustache-4',
-	'mustache-5',
-	'mustache-6',
+	'mustache-5_dark',
+	'mustache-6_dark',
 ];
 
 module.exports = [
