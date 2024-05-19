@@ -70,12 +70,18 @@ class Television {
 			context.drawImage(this.imageInFrame, this.mustacheX * attitudeWidth - mustacheWidth / 2, this.mustacheY * attitudeHeight - mustacheHeight / 2, mustacheWidth, mustacheHeight);
 
 			const dataUrl = canvas.toDataURL('image/png', 1);
-			const link = document.createElement('a');
-			link.href = dataUrl;
-			link.download = 'mustache.png';
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
+      fetch(dataUrl)
+        .then(response => response.blob())
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'mustache.png';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error:', error));
 		}
 	}
 
